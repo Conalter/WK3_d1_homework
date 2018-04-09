@@ -1,3 +1,4 @@
+
 DROP TABLE attendances;
 DROP TABLE movies;
 DROP TABLE people;
@@ -19,6 +20,7 @@ CREATE TABLE attendances (
 	person_id INT REFERENCES people(id) ON DELETE CASCADE,
 	movie_id INT REFERENCES movies(id) ON DELETE CASCADE
 );
+
 
 INSERT INTO people (name) VALUES ('Sarah Bartlett');
 INSERT INTO people (name) VALUES ('Kelsie Braidwood');
@@ -43,6 +45,13 @@ INSERT INTO people (name) VALUES ('Connor Rose');
 INSERT INTO people (name) VALUES ('Nikhil Sharma');
 INSERT INTO people (name) VALUES ('Scott Stevenson');
 
+INSERT INTO people (name) VALUES ('Ali');
+INSERT INTO people (name) VALUES ('Alan');
+INSERT INTO people (name) VALUES ('Alister');
+INSERT INTO people (name) VALUES ('Upul');
+
+
+
 INSERT INTO movies (title, year, show_time) VALUES ('Iron Man', 2008, '21:55');
 INSERT INTO movies (title, year, show_time) VALUES ('The Incredible Hulk', 2008, '15:45');
 INSERT INTO movies (title, year, show_time) VALUES ('Iron Man 2', 2010, '18:30');
@@ -59,6 +68,7 @@ INSERT INTO movies (title, year, show_time) VALUES ('Ant-Man', 2015, '19:25');
 INSERT INTO movies (title, year, show_time) VALUES ('Captain America: Civil War', 2016, '16:50');
 INSERT INTO movies (title, year, show_time) VALUES ('Doctor Strange', 2016, '22:10');
 INSERT INTO movies (title, year, show_time) VALUES ('Guardians of the Galaxy 2', 2017, '16:30');
+
 
 INSERT INTO attendances (person_id, movie_id) VALUES (10, 13);
 INSERT INTO attendances (person_id, movie_id) VALUES (7, 8);
@@ -148,3 +158,14 @@ INSERT INTO attendances (person_id, movie_id) VALUES (15, 8);
 INSERT INTO attendances (person_id, movie_id) VALUES (11, 14);
 INSERT INTO attendances (person_id, movie_id) VALUES (15, 7);
 INSERT INTO attendances (person_id, movie_id) VALUES (18, 10);
+
+
+UPDATE people SET name = 'Liam Cavenns' WHERE name = 'Liam Kavenns';
+
+DELETE FROM people WHERE name  = 'John McCollum';
+
+DELETE FROM movies WHERE title = 'Batman Begins';
+INSERT INTO movies (title, year, show_time) VALUES ('Spider-man: Homecoming', 2017, '17:30');
+
+UPDATE movies SET (title, year, show_time) = ('Guardians of the Galaxy', 2014, '21:00') WHERE title = 'Guardians of the Galaxy';
+UPDATE movies SET (title, year, show_time) = ('Guardians of the Galaxy 2', 2017, '22:00') WHERE title = 'Guardians of the Galaxy 2';
